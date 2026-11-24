@@ -1,0 +1,70 @@
+# ============================================================
+# CutDesk · .gitignore
+# 原则：只提交源码与资源，不提交可由源码再生的产物。
+# 需纳入版本管理的例外：build.spec（手写构建配置）、
+# assets/*.ico 与 assets/*.png（打包必需图标，不随构建再生）。
+# ============================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 虚拟环境（本机约 753 MB）
+.venv/
+venv/
+env/
+ENV/
+
+# 打包 / 安装产物
+*.egg-info/
+.eggs/
+build/
+dist/
+dist_prev*/
+wheels/
+pip-wheel-metadata/
+
+# 测试与静态检查缓存
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# ---------- PyInstaller ----------
+# 中间产物 build/ 与输出 dist/ 已在上方忽略；
+# build.spec 是手工维护的构建入口，必须提交，故不写 *.spec
+
+# ---------- 录制与测试产物 ----------
+# 工具脚本的截图 / 抽帧目录
+tools/_shots/
+tools/_exe/
+tools/_frames/
+
+# 误落在仓库根目录的录制文件（正常输出在 %USERPROFILE%\Videos\CutDesk）
+/*.mp4
+/*.gif
+/*.wav
+
+# 日志
+*.log
+_diag.*
+
+# ---------- 本机工具状态 ----------
+# 代理的本地记忆与配置，属于本机状态，不跨设备共享
+.workbuddy/
+
+# ---------- 编辑器与系统 ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+Thumbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+.DS_Store
